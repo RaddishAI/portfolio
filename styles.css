@@ -15,12 +15,15 @@ body {
 
 /* Main-innhold: fyller resten av siden til venstre */
 main {
-    flex-grow: 1; /* Fyller tilgjengelig plass */
+    flex-grow: 1;
     padding: 20px;
-    text-align: center; /* Sentraliserer tekst */
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 200px; /* Offsets the fixed header width */
+    overflow-y: auto; /* Enables vertical scrolling */
+    height: 100vh;
 }
 
 header {
@@ -29,9 +32,12 @@ header {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Flytter footer-innholdet til bunnen */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Skygge på høyre for å skille headeren */
-    height: 100vh; /* Fyller hele venstresiden */
+    justify-content: space-between;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed; /* Fixes the header on the left side */
+    top: 0;
+    left: 0;
 }
 
 nav {
@@ -61,4 +67,5 @@ nav ul li {
 /* Stiler for footer-content */
 .footer-content {
     text-align: center;
+    padding-bottom: 50px;
 }
