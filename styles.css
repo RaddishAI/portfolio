@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'VT323';
+    src: url('/assets/VT323.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'VT323';
+    src: url('/assets/SixtyfourConvergence-Regular-VariableFont_BLED\,SCAN\,XELA\,YELA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -27,6 +41,46 @@ main {
 
     background-color: #282828;
     color: #66ff66;
+}
+
+/* #indexIntro <uniquifier> {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+} */
+
+.typewriter {
+    font-family: 'VT323', monospace; /* Use a retro, monospace font */
+    font-size: 2em;
+    color: #66ff66; /* Classic green terminal text */
+    background-color: #282828; /* Set background to #282828 */
+    padding: 20px;
+    white-space: nowrap;
+    overflow: hidden; /* Hide the text overflow */
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* Style for the blinking cursor */
+.cursor {
+    display: inline-block;
+    border-right: 2px solid #66ff66; /* Blinking cursor */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #66ff66;
+    }
 }
 
 header {
