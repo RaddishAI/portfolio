@@ -1,37 +1,34 @@
 document.addEventListener("DOMContentLoaded", function() {
     const textElement = document.querySelector('#indexIntro');
-    const text = textElement.innerHTML; // Get the original content with HTML
-    textElement.innerHTML = ''; // Clear the content for typing effect
+    const originalText = textElement.innerHTML; 
+    textElement.innerHTML = ''; 
 
-    // Create a text container and a cursor element
     const textContainer = document.createElement('span');
     const cursor = document.createElement('span');
     cursor.classList.add('cursor');
     cursor.innerHTML = '|';
 
-    // Append both to the #indexIntro element
     textElement.appendChild(textContainer);
     textElement.appendChild(cursor);
 
-    let index = 0;
+    function typeWriter(text, container, delay = 100) {
+        let index = 0;
 
-    function typeWriter() {
-        if (index < text.length) {
-            // Handle line breaks separately
-            if (text.charAt(index) === '<') {
-                if (text.substring(index, index + 4) === '<br>') {
-                    textContainer.innerHTML += '<br>';
-                    index += 4; // Skip the '<br>' characters
+        function type() {
+            if (index < text.length) {
+                if (text.charAt(index) === '<' && text.substring(index, index + 4) === '<br>') {
+                    container.innerHTML += '<br>';
+                    index += 4;
+                } else {
+                    container.innerHTML += text.charAt(index);
+                    index++;
                 }
-            } else {
-                // Add the next character to the text container
-                textContainer.innerHTML += text.charAt(index);
-                index++;
+                setTimeout(type, delay);
             }
-            setTimeout(typeWriter, 100); // Delay in milliseconds
         }
+
+        type();
     }
 
-    // Start the typing effect
-    typeWriter();
+    typeWriter(originalText, textContainer, 100);
 });

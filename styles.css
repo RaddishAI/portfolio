@@ -131,3 +131,13 @@ nav ul li {
 a {
     color: #ffb000;
 }
+
+@media (max-width: 768px) {
+    header {
+        width: 100px; /* Adjust width for mobile */
+    }
+
+    main {
+        margin-left: 100px; /* Adjust margin for mobile */
+    }
+}
