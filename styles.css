@@ -14,20 +14,18 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* Wrapper-div som holder både main og header */
 .mainContainer {
     display: flex;
     flex: 1;
-    flex-direction: row; /* Sikrer at innholdet plasseres horisontalt */
+    flex-direction: row; 
 }
 
-/* Main-innhold: fyller resten av siden til venstre */
 main {
     flex-grow: 1;
     padding: 20px;
@@ -35,8 +33,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 200px; /* Offsets the fixed header width */
-    overflow-y: auto; /* Enables vertical scrolling */
+    margin-left: 200px; 
+    overflow-y: auto; 
     height: 100vh;
 
     background-color: #282828;
@@ -56,13 +54,13 @@ main {
 } */
 
 .typewriter {
-    font-family: 'VT323', monospace; /* Use a retro, monospace font */
+/*     font-family: 'VT323', monospace; /* Use a retro, monospace font */
     font-size: 2em;
-    color: #66ff66; /* Classic green terminal text */
-    background-color: #282828; /* Set background to #282828 */
+    color: #66ff66; 
+    background-color: #282828;
     padding: 20px;
     white-space: nowrap;
-    overflow: hidden; /* Hide the text overflow */
+    overflow: hidden; 
     width: fit-content;
     margin: 0 auto;
 }
@@ -70,7 +68,7 @@ main {
 /* Style for the blinking cursor */
 .cursor {
     display: inline-block;
-    border-right: 2px solid #66ff66; /* Blinking cursor */
+    border-right: 2px solid #66ff66;
     animation: blink-caret 0.75s step-end infinite;
 }
 
@@ -92,7 +90,7 @@ header {
     justify-content: space-between;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     height: 100vh;
-    position: fixed; /* Fixes the header on the left side */
+    position: fixed; 
     top: 0;
     left: 0;
 }
@@ -100,7 +98,8 @@ header {
 nav {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Justerer innholdet til venstre */
+    align-items: flex-start; 
+    font-size: large;
 }
 
 /* Stiler for navigasjonsmenyen */
@@ -130,14 +129,21 @@ nav ul li {
 
 a {
     color: #ffb000;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
     header {
-        width: 100px; /* Adjust width for mobile */
+        width: 100px; 
     }
 
     main {
-        margin-left: 100px; /* Adjust margin for mobile */
+        margin-left: 100px; 
     }
+}
+
+/* index spesific */
+
+.myWorksAboutMe {
+    font-size: larger;
 }
