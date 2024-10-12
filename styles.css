@@ -113,6 +113,11 @@ nav ul li {
     margin: 10px 0;
 }
 
+#active {
+    text-decoration: underline;
+    opacity: 1;
+}
+
 /* Stil for logo */
 #logo {
     max-width: 100px;
@@ -220,6 +225,82 @@ main.myWorkGrid-container > .card:nth-child(3) {
     }
     .card img {
         max-height: 200px;  /* Reduce image size on smaller screens */
+    }
+}
+
+.aboutSection, .resumeSection {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    width: 100%;
+    padding: 40px;
+    text-align: left;  /* Consistent alignment for all text */
+}
+
+.aboutContent, .resumeContent {
+    grid-column: 2 / 5;
+    background-color: #282828;
+    color: #66ff66;
+    text-align: left;
+    max-width: 950px;
+    padding-right: 12px;
+}
+
+.aboutContent h1, .resumeContent h1 {
+    color: #ffb000;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.aboutContent h2, .resumeContent h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.aboutContent h3, .resumeContent h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #66ff66;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.aboutContent p, .resumeContent p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Lists */
+.aboutContent ul, .resumeContent ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.aboutContent ul li, .resumeContent ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+}
+
+.aboutContent ul li::before, .resumeContent ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffb000;
+    font-size: 1.5rem;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    .aboutSection, .resumeSection {
+        grid-template-columns: 1fr;
+    }
+    .aboutContent, .resumeContent {
+        grid-column: 1 / -1;
     }
 }
 
