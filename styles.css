@@ -304,6 +304,143 @@ main.myWorkGrid-container > .card:nth-child(3) {
     }
 }
 
+/* Styling for the form container with the contactForm class */
+.contactForm {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;  /* Set a maximum width for the form to make it narrower */
+    margin: 0 auto;    /* Center the form on the page */
+    width: 100%;       /* Ensure the form takes 100% of its container width */
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ffb000;  /* Use the orange/golden color for labels */
+    text-align: left;  /* Align the label text to the left */
+}
+
+input, textarea {
+    width: 100%;  /* Ensure input fields take full width of the form */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #66ff66;
+    background-color: #282828;  /* Dark background for input fields */
+    color: #66ff66;  /* Text color matching the rest of the site */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+}
+
+/* Input and textarea focus effects */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffb000;  /* Change to orange color on focus */
+}
+
+/* Button styling */
+button {
+    background-color: #ffb000;
+    color: #1a1a1a;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;  /* Full-width button */
+    max-width: 100%; /* Max width should match form */
+}
+
+button:hover {
+    background-color: #e69e00;  /* Slightly darker orange on hover */
+}
+
+button:active {
+    background-color: #cc8e00;  /* Darker color when pressed */
+}
+
+/* Spacing for the contact information below the form */
+.contactInfo {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contactInfo p {
+    margin-bottom: 10px;
+}
+
+.contactInfo a {
+    color: #ffb000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contactInfo a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for social links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Adds space between the icons */
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+}
+
+.social-icon {
+    width: 40px;  /* Adjust icon size */
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for the icons */
+.social-icon:hover {
+    transform: scale(1.2);  /* Slightly enlarge the icon on hover */
+}
+
+/* Responsive form styling */
+@media (max-width: 768px) {
+    .contactForm {
+        padding: 20px;
+        width: 100%;  /* Make the form take full width on smaller screens */
+    }
+
+    button {
+        font-size: 1rem;  /* Slightly smaller button text on mobile */
+    }
+
+    .social-icon {
+        width: 30px;  /* Smaller icons on smaller screens */
+        height: 30px;
+    }
+}
+
+/* Hover effect for the icons */
+.social-icon:hover {
+    transform: scale(1.2);  /* Slightly enlarge the icon on hover */
+}
+
+/* Responsive size adjustments */
+@media (max-width: 768px) {
+    .social-icon {
+        width: 30px;  /* Smaller icons on smaller screens */
+        height: 30px;
+    }
+}
+
 /* index spesific */
 
 
