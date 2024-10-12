@@ -142,38 +142,57 @@ a {
     }
 }
 
+/* my work page */
+
 main.myWorkGrid-container {
     display: grid;
-    grid-template-rows: 1fr auto auto auto 1fr;  /* 5 rows, middle three are auto-sized for content */
+    grid-template-rows: 1fr auto auto auto 1fr;  /* Keep the 5 rows with buffer rows */
     grid-gap: 20px;  /* Spacing between rows */
     justify-items: center;  /* Center cards horizontally */
     width: 100%;  /* Full width */
-    height: 100vh; /* Full height to see grid in action */
+    height: 100vh;  /* Full viewport height */
 }
 
-/* Styling for the card elements */
+/* Ensure the <a> behaves like a block-level element and is styled properly */
+.card-link {
+    display: block;  /* Make the <a> behave like a block */
+    width: 85%;  /* Set the width of the link to match the card */
+    text-decoration: none;  /* Remove underline from the link */
+    color: inherit;  /* Ensure the color is inherited and looks like part of the design */
+}
+
+/* Styling for the card inside the <a> tag */
 .card {
-    background-color: #f9f9f9;
+    background-color: #1a1a1a;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;  /* Adjust card width as needed */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1a1a1a;
 }
 
-/* Limit the image size within the card */
+/* Image styling inside the card */
 .card img {
     max-width: 100%;
-    max-height: 300px;  /* Limit the image height */
-    object-fit: cover;  /* Ensures the image covers the space without distortion */
+    height: auto;
+    object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 15px;  /* Space between image and content */
+    margin-bottom: 15px;
 }
 
-/* Ensures that each card fills a specific row */
+/* Add some hover effect to indicate the card is clickable */
+.card-link:hover .card {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Responsive styling for mobile */
+@media (max-width: 768px) {
+    .card-link {
+        width: 90%;  /* Slightly smaller width on mobile */
+    }
+}
+
 main.myWorkGrid-container > .card:nth-child(1) {
     grid-row: 2;  /* First card goes to row 2 */
 }
@@ -184,6 +203,14 @@ main.myWorkGrid-container > .card:nth-child(2) {
 
 main.myWorkGrid-container > .card:nth-child(3) {
     grid-row: 4;  /* Third card goes to row 4 */
+}
+
+/* Style for the paragraph inside the card */
+.card p {
+    max-width: 80%;  /* Match the width of the image */
+    color: #66ff66;
+    font-size: 1rem;
+    text-align: center;  /* Center the text */
 }
 
 /* Optional: Responsive design for smaller screens */

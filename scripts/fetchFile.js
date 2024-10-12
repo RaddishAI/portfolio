@@ -36,6 +36,13 @@ async function generateCards() {
     // Loop through each webpage entry
     for (const [index, webpage] of webpageData.entries()) {
         console.log(`Processing entry #${index + 1}`);
+
+        // Create a link (anchor) element that will wrap the entire card
+        const linkElement = document.createElement('a');
+        linkElement.href = webpage.acf.link;  // Set the link to the webpage URL
+        linkElement.target = "_blank";  // Open in a new tab (optional)
+        linkElement.classList.add('card-link');  // Optional class for styling
+
         const card = document.createElement('div');
         card.classList.add('card');
 
@@ -54,13 +61,17 @@ async function generateCards() {
             const imageUrl = await fetchImageUrl(imageId);  // Await the image fetch
             console.log(`Fetched image URL for ID ${imageId}: ${imageUrl}`);
 
+            const imgContainer = document.createElement('div');
+            imgContainer.classList.add('image-container');
+
             if (imageUrl) {
                 const imgElement = document.createElement('img');
                 const imgAltText = webpage.acf.imgAlt;  // Get the alt text
 
                 imgElement.src = imageUrl;  // Set the image source
                 imgElement.alt = imgAltText || 'Image';  // Fallback to 'Image' if alt text is missing
-                card.appendChild(imgElement);  // Append image to the card
+                imgContainer.appendChild(imgElement);  // Append image to the container
+                card.appendChild(imgContainer);  // Append the container to the card
             } else {
                 console.error(`No image found for ID: ${imageId}`);
             }
@@ -77,10 +88,14 @@ async function generateCards() {
             console.warn(`Entry #${index + 1} is missing an ingress`);
         }
 
-        // Append the card to the main container
-        mainContainer.appendChild(card);
+        // Append the card to the link element
+        linkElement.appendChild(card);
+
+        // Append the link element (which now contains the card) to the main container
+        mainContainer.appendChild(linkElement);
     }
 }
+
 
 // Call the fetchData function to start the process when the page loads
 window.onload = function () {
