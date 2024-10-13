@@ -321,6 +321,7 @@ main.myWorkGrid-container > .card:nth-child(3) {
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group {
@@ -345,6 +346,7 @@ input, textarea {
     font-size: 1rem;
     transition: border-color 0.3s ease;
     resize: vertical;
+    box-sizing: border-box;
 }
 
 input:focus, textarea:focus {
@@ -371,6 +373,26 @@ button:hover {
 
 button:active {
     background-color: #cc8e00; 
+}
+
+@media (max-width: 768px) {
+    .contactForm {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    button {
+        font-size: 1rem;
+        width: 100%;
+    }
+    
+    input, textarea {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
 }
 
 .contactInfo {
