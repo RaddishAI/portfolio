@@ -9,7 +9,7 @@ async function fetchData() {
         webpageData = await response.json();
         console.log("Data successfully stored in the webpageData variable: ", webpageData);
         console.log(`Total entries fetched: ${webpageData.length}`);
-        generateCards();  // Call the function to generate cards after data is fetched
+        generateCards();
     } catch (error) {
         console.error('Error fetching data: ', error);
     }
@@ -22,43 +22,40 @@ async function fetchImageUrl(imageId) {
         const mediaResponse = await fetch(`https://portfolio.raddishai.no/wp-json/wp/v2/media/${imageId}`);
         const mediaData = await mediaResponse.json();
         console.log(`Image data for ID ${imageId}: `, mediaData);
-        return mediaData.source_url;  // Return the URL of the image
+        return mediaData.source_url;
     } catch (error) {
         console.error('Error fetching image URL: ', error);
-        return null;  // Return null if there's an error
+        return null;
     }
 }
 
-// Async function to generate the cards
+
 async function generateCards() {
     const mainContainer = document.querySelector('main');
 
-    // Loop through each webpage entry
+
     for (const [index, webpage] of webpageData.entries()) {
         console.log(`Processing entry #${index + 1}`);
 
-        // Create a link (anchor) element that will wrap the entire card
         const linkElement = document.createElement('a');
-        linkElement.href = webpage.acf.link;  // Set the link to the webpage URL
-        linkElement.target = "_blank";  // Open in a new tab (optional)
-        linkElement.classList.add('card-link');  // Optional class for styling
+        linkElement.href = webpage.acf.link;
+        linkElement.target = "_blank";
+        linkElement.classList.add('card-link');
 
         const card = document.createElement('div');
         card.classList.add('card');
 
-        // Add title to the card
         if (webpage.acf.title) {
             const titleElement = document.createElement('h2');
-            titleElement.innerText = webpage.acf.title;  // Set the title of the card
+            titleElement.innerText = webpage.acf.title;
             card.appendChild(titleElement);
         } else {
             console.warn(`Entry #${index + 1} is missing a title`);
         }
 
-        // Fetch image URL based on the image ID
         const imageId = webpage.acf.image;
         if (imageId) {
-            const imageUrl = await fetchImageUrl(imageId);  // Await the image fetch
+            const imageUrl = await fetchImageUrl(imageId);
             console.log(`Fetched image URL for ID ${imageId}: ${imageUrl}`);
 
             const imgContainer = document.createElement('div');
@@ -66,12 +63,12 @@ async function generateCards() {
 
             if (imageUrl) {
                 const imgElement = document.createElement('img');
-                const imgAltText = webpage.acf.imgAlt;  // Get the alt text
+                const imgAltText = webpage.acf.imgAlt;
 
-                imgElement.src = imageUrl;  // Set the image source
-                imgElement.alt = imgAltText || 'Image';  // Fallback to 'Image' if alt text is missing
-                imgContainer.appendChild(imgElement);  // Append image to the container
-                card.appendChild(imgContainer);  // Append the container to the card
+                imgElement.src = imageUrl;
+                imgElement.alt = imgAltText || 'Image';
+                imgContainer.appendChild(imgElement);
+                card.appendChild(imgContainer);
             } else {
                 console.error(`No image found for ID: ${imageId}`);
             }
@@ -79,7 +76,6 @@ async function generateCards() {
             console.warn(`Entry #${index + 1} is missing an image ID`);
         }
 
-        // Add ingress (description) to the card
         if (webpage.acf.ingress) {
             const ingressElement = document.createElement('p');
             ingressElement.innerText = webpage.acf.ingress;
@@ -88,16 +84,13 @@ async function generateCards() {
             console.warn(`Entry #${index + 1} is missing an ingress`);
         }
 
-        // Append the card to the link element
         linkElement.appendChild(card);
 
-        // Append the link element (which now contains the card) to the main container
         mainContainer.appendChild(linkElement);
     }
 }
 
 
-// Call the fetchData function to start the process when the page loads
 window.onload = function () {
     fetchData();
 };
