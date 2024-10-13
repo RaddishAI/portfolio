@@ -28,3 +28,13 @@ git clone https://github.com/RaddishAI/portfolio.git
 1. Clone the repository:
    ```bash
    git clone https://github.com/RaddishAI/portfolio.git
+
+---
+
+## Contact Me
+
+- [LinkedIn](https://www.linkedin.com/in/petter-r%C3%B8nning-80602613a/)
+- [Portfolio](https://raddishaisportfolio.netlify.app/)
+- [Email](mailto:petter.arbeid@gmail.com)
+
+---
