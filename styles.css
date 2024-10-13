@@ -32,17 +32,19 @@ main {
 
     background-color: #282828;
     color: #66ff66;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 .typewriter {
-/*     font-family: 'VT323', monospace; /* Use a retro, monospace font */
     font-size: 2em;
     color: #66ff66; 
     background-color: #282828;
     padding: 20px;
-    white-space: nowrap;
-    overflow: hidden; 
-    width: fit-content;
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -179,6 +181,24 @@ main.myWorkGrid-container {
 
 .card-link:hover .card {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.github-button {
+    display: inline-block;
+    background-color: #282828;
+    color: #ffb000;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+    background-color: #333; 
 }
 
 @media (max-width: 768px) {

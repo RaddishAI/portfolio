@@ -77,11 +77,31 @@ async function generateCards() {
         }
 
         if (webpage.acf.ingress) {
-            const ingressElement = document.createElement('p');
+            const ingressElement = document.createElement('h3');
             ingressElement.innerText = webpage.acf.ingress;
             card.appendChild(ingressElement);
         } else {
             console.warn(`Entry #${index + 1} is missing an ingress`);
+        }
+
+        if (webpage.acf.overview) {
+            const overviewElement = document.createElement('p');
+            overviewElement.innerText = webpage.acf.overview;
+            card.appendChild(overviewElement);
+        } else {
+            console.warn(`Entry #${index + 1} is missing an overview`);
+        }
+
+        if (webpage.acf.githublink) {
+            const githubButton = document.createElement('a');
+            githubButton.href = webpage.acf.githublink;
+            githubButton.target = "_blank"; 
+            githubButton.classList.add('github-button');
+            githubButton.innerText = 'View on GitHub';
+
+            card.appendChild(githubButton);
+        } else {
+            console.warn(`Entry #${index + 1} is missing a GitHub link`);
         }
 
         linkElement.appendChild(card);
